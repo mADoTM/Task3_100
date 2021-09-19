@@ -1,7 +1,6 @@
 package ru.vsu.cs.dolzhenkoms;
 
 import ru.vsu.cs.dolzhenkoms.figures.*;
-import ru.vsu.cs.dolzhenkoms.figures.Rectangle;
 
 import java.awt.geom.Point2D;
 import java.util.Locale;
