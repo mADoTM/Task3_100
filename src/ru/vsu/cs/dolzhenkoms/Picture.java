@@ -2,15 +2,21 @@ package ru.vsu.cs.dolzhenkoms;
 
 import ru.vsu.cs.dolzhenkoms.figures.*;
 
-import java.awt.geom.Point2D;
-
 public class Picture {
-    private static final Line L1 = new Line(0, -1, 1);
-    private static final HorizontalParabola HP1 = new HorizontalParabola(-2, -4, -0.25);
-    private static final VerticalParabola VP1 = new VerticalParabola(4, -5, 0.25);
-    private static final Rectangle RC1 = new Rectangle(new Point2D.Double(-5.0,-3.0), new Point2D.Double(3.0,4.0));
+    private final Line L1;
+    private final HorizontalParabola HP1;
+    private final VerticalParabola VP1;
+    private final Rectangle RC1;
 
-    public static SimpleColor getColor(double x, double y) {
+    public Picture(Line line, HorizontalParabola hp, VerticalParabola vp, Rectangle rc) {
+        L1 = line;
+        HP1 = hp;
+        VP1 = vp;
+        RC1 = rc;
+    }
+
+
+    public SimpleColor getColor(double x, double y) {
         if(Math.abs(x) > 10 || Math.abs(y) > 10) {
             System.out.println("[ERROR]Entered wrong data. Color sets in white");
         } else {
@@ -25,7 +31,7 @@ public class Picture {
         return SimpleColor.WHITE;
     }
 
-    private static SimpleColor getColorFromUpsideZone(double x, double y) {
+    private SimpleColor getColorFromUpsideZone(double x, double y) {
         if(HP1.isPointLeftOfParabola(x,y)) {
             if(RC1.isPointInsideRectangle(x,y)) {
                 return SimpleColor.GREEN;
@@ -60,7 +66,7 @@ public class Picture {
         return SimpleColor.ORANGE;
     }
 
-    private static SimpleColor getColorFromDownsideZone(double x, double y) {
+    private SimpleColor getColorFromDownsideZone(double x, double y) {
         if(VP1.isPointInsideOfParabola(x,y)) {
             if(RC1.isPointInsideRectangle(x,y)) {
                 return SimpleColor.BLUE;
