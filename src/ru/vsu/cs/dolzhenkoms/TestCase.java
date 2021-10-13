@@ -8,11 +8,8 @@ import ru.vsu.cs.dolzhenkoms.figures.VerticalParabola;
 import java.awt.geom.Point2D;
 
 public class TestCase {
-    private Picture picture = new Picture(new Line(0, -1, 1),new HorizontalParabola(-2, -4, -0.25), new VerticalParabola(4, -5, 0.25), new Rectangle(new Point2D.Double(-5.0,-3.0), new Point2D.Double(3.0,4.0)));
 
-    public boolean testCompleted = testGetColor();
-
-    private boolean testGetColor() {
+    public boolean checkGetColor(Picture picture) {
         if(picture.getColor(0,0) != SimpleColor.ORANGE) {
             System.out.println("0,0 test not completed");
             return false;

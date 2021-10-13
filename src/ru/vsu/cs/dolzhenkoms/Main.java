@@ -19,7 +19,7 @@ public class Main {
     private static TestCase tester = new TestCase();
 
     public static void main(String[] args) {
-        if(tester.testCompleted == false) {
+        if(tester.checkGetColor(picture) == false) {
             System.out.println("Tests are not completed");
             System.exit(1);
         }
